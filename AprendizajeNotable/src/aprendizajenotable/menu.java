@@ -22,6 +22,8 @@ import aprendizajenotable.ventana_1;
 import aprendizajenotable.ventana_2;
 import aprendizajenotable.ventana_3;
 import aprendizajenotable.ventana_5;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class menu extends JFrame implements ActionListener {
 
@@ -60,7 +62,7 @@ public class menu extends JFrame implements ActionListener {
         nivel4 = new JMenuItem("NIVEL ", cuatro);
         nivel5 = new JMenuItem("NIVEL ", cinco);
         nivel6 = new JMenuItem("NIVEL ", seis);
-        video1 = new JMenuItem("video1");
+        video1 = new JMenuItem("Codigo");
         itemSalir = new JMenuItem("Salir");
         itemJuego = new JMenuItem("Juego");
 
@@ -153,7 +155,7 @@ public class menu extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == video1) {
-            goToURL("https://www.youtube.com");
+            goToURL("https://github.com/santiago2904/javaPPI");
         }
 
         if (e.getSource() == itemSalir) {
@@ -264,4 +266,6 @@ public class menu extends JFrame implements ActionListener {
             nivel6.setEnabled(true);
         }
     }
+
+  
 }

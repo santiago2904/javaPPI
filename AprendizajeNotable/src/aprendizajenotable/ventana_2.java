@@ -31,10 +31,7 @@ public class ventana_2 extends JFrame
 
     public ventana_2(String Titulo, int ancho, int alto) {
 
-        setLayout(null); //evitar distribuciones automaticas
-        setTitle(Titulo);//titulo
-        setSize(ancho, alto);//tamaño formularios
-        setLocationRelativeTo(this);//centrado automatico
+        
         //paso 2 crear instancias
         //de la clase padre(base)
         this.getContentPane().setBackground(new java.awt.Color(255, 239, 213));
@@ -42,7 +39,10 @@ public class ventana_2 extends JFrame
         iconsig = new ImageIcon(getClass().getResource(ruta + "next1.png"));
         lblpreg = new JLabel("Escoge dos opciones que resulten  ");
 
-        lblpreg1 = new JLabel("de un producto natable ");
+        lblpreg1 = new JLabel("de un producto natablsetLayout(null); //evitar distribuciones automaticas\n" +
+"        setTitle(Titulo);//titulo\n" +
+"        setSize(ancho, alto);//tamaño formularios\n" +
+"        setLocationRelativeTo(this);//centrado automaticoe ");
         ckop1 = new JCheckBox("4x²+ 20x +25");
         ckop2 = new JCheckBox("a²+c²");
         ckop3 = new JCheckBox("49x²+126x+81");

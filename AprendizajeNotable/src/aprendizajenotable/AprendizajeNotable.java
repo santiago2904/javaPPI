@@ -8,8 +8,10 @@ import java.util.*;
 import javafx.scene.layout.Background;
 import javax.swing.*;
 import static aprendizajenotable.AprendizajeNotable.layered;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class AprendizajeNotable extends JFrame implements ActionListener {
+public class AprendizajeNotable extends JFrame implements ActionListener, KeyListener {
 
     static ImageIcon iconsig;
     static JButton btnok1;
@@ -54,7 +56,7 @@ public class AprendizajeNotable extends JFrame implements ActionListener {
         contraseña.setBounds(200, 330, 100, 20);
         btnok1.setBounds(140, 400, 200, 60);
         btnok1.addActionListener(this);
-
+       
         add(logo);
         add(lblcasilla2);
         add(lblcasilla);
@@ -69,7 +71,9 @@ public class AprendizajeNotable extends JFrame implements ActionListener {
         lblcasilla2.setForeground(Color.white);
 
         setVisible(true);
-
+        lblcasilla.addKeyListener(this);
+        lblcasilla2.addKeyListener(this);
+        addKeyListener(this);
     }
 
     public static boolean getValidar() {
@@ -118,4 +122,42 @@ public class AprendizajeNotable extends JFrame implements ActionListener {
 
         }
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+         
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+      /*  if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
+            System.out.println("presiono enter");
+          if (getValidar()) {
+              System.out.println("llega a validar");
+                dispose();
+                JOptionPane.showMessageDialog(null, "Bienvenido");
+
+                new menu("", 500, 500);
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Ingresa correctamente");
+            }
+        }*/
+        
+        
+        
+        
+        
+        
+ 
+        
+        
+        
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    
 }
