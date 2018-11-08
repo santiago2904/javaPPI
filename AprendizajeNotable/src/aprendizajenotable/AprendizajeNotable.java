@@ -1,13 +1,13 @@
 package aprendizajenotable;
 
+import static aprendizajenotable.AprendizajeNotable.layered;
 import java.awt.*;
 import aprendizajenotable.menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
-import javafx.scene.layout.Background;
+
 import javax.swing.*;
-import static aprendizajenotable.AprendizajeNotable.layered;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -27,6 +27,7 @@ public class AprendizajeNotable extends JFrame implements ActionListener {
         Font fuente = new Font("Footlight MT Light", 3, 13);
         this.setUndecorated(true);
         this.getContentPane().setBackground(new java.awt.Color(255, 239, 213));
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setLayout(null);
         setTitle(titulo);
@@ -82,7 +83,7 @@ public class AprendizajeNotable extends JFrame implements ActionListener {
         if (txtcasilla2.getText().length() < 4
                 || contraseña.getText().length() < 4) {
 
-            JOptionPane.showMessageDialog(null, "ingresa más de tres caracteres");
+            JOptionPane.showMessageDialog(null, "Ingresa mas de tres caracteres");
 
         } else {
 
@@ -99,7 +100,7 @@ public class AprendizajeNotable extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
 
-        new AprendizajeNotable("nombre", 500, 500);
+        new AprendizajeNotable("Nombre", 500, 500);
 
     }
 
