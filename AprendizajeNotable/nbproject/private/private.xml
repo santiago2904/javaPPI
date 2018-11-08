@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/E:/AprendizajeNotable/src/aprendizajenotable/ventana_1.java</file>
-        <file>file:/E:/AprendizajeNotable/src/aprendizajenotable/quienes_somos.java</file>
-        <file>file:/E:/AprendizajeNotable/src/imagenes/santiago.jpg</file>
-        <file>file:/E:/AprendizajeNotable/src/imagenes/sara.jpg</file>
-        <file>file:/E:/AprendizajeNotable/src/aprendizajenotable/ventana_7.java</file>
-        <file>file:/E:/AprendizajeNotable/src/aprendizajenotable/ventana_6.java</file>
-        <file>file:/E:/AprendizajeNotable/src/aprendizajenotable/AprendizajeNotable.java</file>
-        <file>file:/E:/AprendizajeNotable/src/aprendizajenotable/pregunta1.java</file>
-        <file>file:/E:/AprendizajeNotable/src/aprendizajenotable/ventana_5.java</file>
-        <file>file:/E:/AprendizajeNotable/src/aprendizajenotable/operaciones.java</file>
-        <file>file:/E:/AprendizajeNotable/src/aprendizajenotable/ventana_2.java</file>
-        <file>file:/E:/AprendizajeNotable/src/aprendizajenotable/menu.java</file>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
+        <file>
+            <url>src/aprendizajenotable/Nivel5.java</url>
+            <bookmark id="2">
+                <name/>
+                <line>47</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/aprendizajenotable/menu.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>10</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Nivel3.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Nivel7.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/quienes_somos.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Nivel5.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Nivel2.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Puntos.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/menu.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Nivel8.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Nivel10.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Nivel4.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Nivel9.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Nivel1.java</file>
+            <file>file:/D:/javaPPI/javaPPI/AprendizajeNotable/src/aprendizajenotable/Nivel6.java</file>
+        </group>
     </open-files>
 </project-private>
