@@ -1,6 +1,5 @@
 package aprendizajenotable;
 
-
 import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -14,6 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import aprendizajenotable.menu;
 import aprendizajenotable.Puntos;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -37,9 +38,17 @@ public class Nivel1 extends JFrame implements ActionListener {
         setLocationRelativeTo(this);
 
         //paso2 crear las instancias al constructor 
-        this.getContentPane().setBackground(new java.awt.Color(255, 239, 213));
+        //this.getContentPane().setBackground(new java.awt.Color(255, 239, 213));
+        ImageIcon img = new ImageIcon(getClass().getResource("/imagenes/fondo.jpg"));
+        JLabel fondo = new JLabel(img);
+        JLayeredPane layered = new JLayeredPane();// objeto para colocar imagen de fondo
+        ((JPanel) getContentPane()).setOpaque(false);
+
+        fondo.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+
         iconok = new ImageIcon(getClass().getResource("/imagenes/ok.png"));
-        iconsig = new ImageIcon(getClass().getResource("/imagenes/next1.png"));
+        iconsig = new ImageIcon(getClass().getResource("/imagenes/next.png"));
         lblpregunta = new JLabel("¿Cual de estos casos es");
         lblpregunta1 = new JLabel("un trinomio cuadrado perfecto?:");
 
@@ -54,11 +63,11 @@ public class Nivel1 extends JFrame implements ActionListener {
         lblpregunta.setBounds(10, 20, 300, 20);
         lblpregunta1.setBounds(10, 50, 300, 20);
         rdbtnop1.setBounds(10, 90, 220, 20);
-        rdbtnop2.setBounds(10, 110, 220, 20);
-        rdbtnop3.setBounds(10, 130, 220, 20);
-        rdbtnop4.setBounds(10, 150, 220, 20);
-        btnOk.setBounds(20, 190, 100, 20);
-        btnSiguiente.setBounds(130, 190, 100, 20);
+        rdbtnop2.setBounds(10, 120, 220, 20);
+        rdbtnop3.setBounds(10, 150, 220, 20);
+        rdbtnop4.setBounds(10, 180, 220, 20);
+        btnOk.setBounds(20, 230, 100, 20);
+        btnSiguiente.setBounds(130, 230, 100, 20);
 
         grupop1.add(rdbtnop1);
         grupop1.add(rdbtnop2);
@@ -71,55 +80,57 @@ public class Nivel1 extends JFrame implements ActionListener {
         add(rdbtnop2);
         add(rdbtnop3);
         add(rdbtnop4);
-        setVisible(true);
 
         add(btnOk);
         btnOk.addActionListener(this);
         btnSiguiente.addActionListener(this);
         add(btnSiguiente);
 
-        Font fuente = new Font("Comic Sans MS", 2, 16);
-        Font fuente1 = new Font("Cambria", 3, 13);
-        rdbtnop1.setBackground(new java.awt.Color(255, 239, 213));
-        rdbtnop2.setBackground(new java.awt.Color(255, 239, 213));
-        rdbtnop3.setBackground(new java.awt.Color(255, 239, 213));
-        rdbtnop4.setBackground(new java.awt.Color(255, 239, 213));
+        //rdbtnop1.setBackground(new java.awt.Color(255, 239, 213));
+        rdbtnop1.setOpaque(false);
+        rdbtnop2.setOpaque(false);
+        rdbtnop3.setOpaque(false);
+        rdbtnop4.setOpaque(false);
 
+        Font fuente = new Font("Comic Sans MS", 2, 16);
+        Font fuente1 = new Font("Cambria", 3, 20);
         lblpregunta.setFont(fuente);
         lblpregunta1.setFont(fuente);
+        rdbtnop1.setFont(fuente1);
+        rdbtnop2.setFont(fuente1);
+        rdbtnop3.setFont(fuente1);
+        rdbtnop4.setFont(fuente1);
 
+        setVisible(true);
     }
 
     public void setValidar() {
-        if (rdbtnop1.isSelected()) {
-            Puntos.setAcieros(1);
-            
-            btnOk.setVisible(false);
-            btnSiguiente.setVisible(true);
-        }
-        if (rdbtnop2.isSelected()) {
-            Puntos.setErrores(1);
+        if (!(rdbtnop1.isSelected()) && !(rdbtnop2.isSelected()) && !(rdbtnop3.isSelected()) && !(rdbtnop4.isSelected())) {
+
+            JOptionPane.showMessageDialog(this, "Seleccione una opción");
+
+        } else {
+            if (rdbtnop1.isSelected()) {
+                Puntos.setAcieros(1);
+            }
+            if (rdbtnop2.isSelected()) {
+                Puntos.setErrores(1);
+            }
+            if (rdbtnop3.isSelected()) {
+                Puntos.setErrores(1);
+            }
+            if (rdbtnop4.isSelected()) {
+                Puntos.setErrores(1);
+
+            }
             btnOk.setVisible(false);
             btnSiguiente.setVisible(true);
 
         }
-        if (rdbtnop3.isSelected()) {
-            Puntos.setErrores(1);
-            btnOk.setVisible(false);
-            btnSiguiente.setVisible(true);
-
-        }
-        if (rdbtnop4.isSelected()) {
-            Puntos.setErrores(1);
-        
-            btnOk.setVisible(false);
-            btnSiguiente.setVisible(true);
-        }
-
     }
 
     public static void main(String[] args) {
-        new Nivel1("nivel 1 de trinomio cuadrado perfecto ", 500, 500);
+        new Nivel1("nivel 1 de trinomio cuadrado perfecto ", 400, 300);
 
     }
 
@@ -130,9 +141,8 @@ public class Nivel1 extends JFrame implements ActionListener {
         }
         if (boton.getSource() == btnSiguiente) {
             dispose();
-            
 
-            new Nivel2("nivel 2 de producto notable", 500, 500);
+            new Nivel2("nivel 2 de producto notable", 400, 300);
 
         }
 

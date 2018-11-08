@@ -1,6 +1,5 @@
 package aprendizajenotable;
 
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -16,6 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import aprendizajenotable.menu;
 import aprendizajenotable.Puntos;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 
 public class Nivel2 extends JFrame implements ActionListener {
 
@@ -34,10 +35,18 @@ public class Nivel2 extends JFrame implements ActionListener {
         setSize(ancho, alto);
         setLocationRelativeTo(this);
         //paso 2 crear instancias del constructor
-        this.getContentPane().setBackground(new java.awt.Color(255, 239, 213));
+        // this.getContentPane().setBackground(new java.awt.Color(255, 239, 213));
+
+        ImageIcon img = new ImageIcon(getClass().getResource("/imagenes/fondo.jpg"));
+        JLabel fondo = new JLabel(img);
+        JLayeredPane layered = new JLayeredPane();// objeto para colocar imagen de fondo
+        ((JPanel) getContentPane()).setOpaque(false);
+
+        fondo.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
 
         iconok = new ImageIcon(getClass().getResource(ruta + "ok.png"));
-        iconsig = new ImageIcon(getClass().getResource(ruta + "next1.png"));
+        iconsig = new ImageIcon(getClass().getResource(ruta + "next.png"));
 
         lblpregunta1 = new JLabel("¿Cual de estas expresiones  ");
 
@@ -79,52 +88,50 @@ public class Nivel2 extends JFrame implements ActionListener {
         add(btnsiguiente);
         btnsiguiente.addActionListener(this);
         Font fuente = new Font("Comic Sans MS", 2, 16);
-        Font fuente1 = new Font("Cambria", 3, 13);
+        Font fuente1 = new Font("Cambria", 3, 20);
 
         lblpregunta1.setFont(fuente);
         lblpregunta2.setFont(fuente);
 
-        rdbtnop1.setBackground(new java.awt.Color(255, 239, 213));
-        rdbtnop2.setBackground(new java.awt.Color(255, 239, 213));
-        rdbtnop3.setBackground(new java.awt.Color(255, 239, 213));
-        rdbtnop4.setBackground(new java.awt.Color(255, 239, 213));
+        rdbtnop1.setOpaque(false);
+        rdbtnop2.setOpaque(false);
+        rdbtnop3.setOpaque(false);
+        rdbtnop4.setOpaque(false);
+        rdbtnop1.setFont(fuente1);
+        rdbtnop2.setFont(fuente1);
+        rdbtnop3.setFont(fuente1);
+        rdbtnop4.setFont(fuente1);
 
         setVisible(true);
-      
+
     }
 
-   
     public void setValidar() {
-        if (rdbtnop1.isSelected()) {
-            Puntos.setErrores(1);
 
-            // rdbtnop1.setBackground(Color.pink);
+        if (!(rdbtnop1.isSelected()) && !(rdbtnop2.isSelected()) && !(rdbtnop3.isSelected()) && !(rdbtnop4.isSelected())) {
+
+            JOptionPane.showMessageDialog(this, "Seleccione una opción");
+
+        } else {
+            if (rdbtnop1.isSelected()) {
+                Puntos.setErrores(1);
+
+            }
+            if (rdbtnop2.isSelected()) {
+                Puntos.setAcieros(1);
+
+            }
+            if (rdbtnop3.isSelected()) {
+                Puntos.setErrores(1);
+
+            }
+            if (rdbtnop4.isSelected()) {
+                Puntos.setErrores(1);
+
+            }
+
             btnsiguiente.setVisible(true);
             btnok.setVisible(false);
-
-        }
-        if (rdbtnop2.isSelected()) {
-            Puntos.setAcieros(1);
-
-            // rdbtnop2.setBackground(Color.orange);
-            btnsiguiente.setVisible(true);
-            btnok.setVisible(false);
-        }
-        if (rdbtnop3.isSelected()) {
-            Puntos.setErrores(1);
-
-            //rdbtnop3.setBackground(Color.white);
-            btnsiguiente.setVisible(true);
-            btnok.setVisible(false);
-
-        }
-        if (rdbtnop4.isSelected()) {
-            Puntos.setErrores(1);
-
-            //rdbtnop4.setBackground(Color.yellow);
-            btnsiguiente.setVisible(true);
-            btnok.setVisible(false);
-
         }
     }
 
@@ -136,14 +143,13 @@ public class Nivel2 extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent boton) {
         if (boton.getSource() == btnok) {
-             setValidar();
+            setValidar();
 
         }
         if (boton.getSource() == btnsiguiente) {
 
             dispose();//eliminar el objeto anterior
-             new Nivel3("nivel 3 de producto notable", 500, 500);
-
+            new Nivel3("nivel 3 de producto notable", 450, 300);
 
         }
     }

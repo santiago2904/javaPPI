@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 import aprendizajenotable.menu;
 import aprendizajenotable.AprendizajeNotable;
 import aprendizajenotable.Puntos;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 
 public class Nivel3 extends JFrame
         implements ActionListener, MouseListener {
@@ -27,18 +29,25 @@ public class Nivel3 extends JFrame
     JLabel lblpreg, lblpreg1;
     JButton btnok, btnresp, btnsigui;
     static int contador = 0;
-    
 
     public Nivel3(String Titulo, int ancho, int alto) {
 
-         setTitle(Titulo);
+        setTitle(Titulo);
         setSize(ancho, alto);
         setLocationRelativeTo(this);
         //paso 2 crear instancias
         //de la clase padre(base)
-        this.getContentPane().setBackground(new java.awt.Color(255, 239, 213));
+        // this.getContentPane().setBackground(new java.awt.Color(255, 239, 213));
+
+        ImageIcon img = new ImageIcon(getClass().getResource("/imagenes/fondo.jpg"));
+        JLabel fondo = new JLabel(img);
+        JLayeredPane layered = new JLayeredPane();// objeto para colocar imagen de fondo
+        ((JPanel) getContentPane()).setOpaque(false);
+
+        fondo.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         iconok = new ImageIcon(getClass().getResource(ruta + "ok.png"));
-        iconsig = new ImageIcon(getClass().getResource(ruta + "next1.png"));
+        iconsig = new ImageIcon(getClass().getResource(ruta + "next.png"));
         lblpreg = new JLabel("Escoge dos opciones que resulten de un producto notable   ");
 
         lblpreg1 = new JLabel("");
@@ -77,47 +86,49 @@ public class Nivel3 extends JFrame
         add(btnsigui);
         add(lblpreg1);
         Font fuente = new Font("Comic Sans MS", 2, 16);
-        Font fuente1 = new Font("Cambria", 3, 13);
+        Font fuente1 = new Font("Cambria", 3, 20);
         lblpreg.setFont(fuente);
         lblpreg1.setFont(fuente);
 
-        ckop1.setBackground(new java.awt.Color(255, 239, 213));
-        ckop2.setBackground(new java.awt.Color(255, 239, 213));
-        ckop3.setBackground(new java.awt.Color(255, 239, 213));
-        ckop4.setBackground(new java.awt.Color(255, 239, 213));
+        ckop1.setOpaque(false);
+        ckop2.setOpaque(false);
+        ckop3.setOpaque(false);
+        ckop4.setOpaque(false);
+
+        ckop1.setFont(fuente1);
+        ckop2.setFont(fuente1);
+        ckop3.setFont(fuente1);
+        ckop4.setFont(fuente1);
 
         setVisible(true);
-        
 
     }
 
-   
-        public void setValidar() {
-     if(ckop1.isSelected() && ckop2.isSelected()){
-     
-        Puntos.setAcieros(1);
-         btnok.setVisible(false);
-     btnsigui.setVisible(true);
-     }else{
-     
-     Puntos.setErrores(1);
-        btnok.setVisible(false);
-        btnsigui.setVisible(true);   
-     }
-    
-        
+    public void setValidar() {
+        if (ckop1.isSelected() && ckop2.isSelected()) {
+
+            Puntos.setAcieros(1);
+            btnok.setVisible(false);
+            btnsigui.setVisible(true);
+        } else {
+
+            Puntos.setErrores(1);
+            btnok.setVisible(false);
+            btnsigui.setVisible(true);
         }
+
+    }
 
     public static void main(String[] args) {
 
-        new Nivel3("Nivel 3 de producto notable", 500, 500);
+        new Nivel3("Nivel 3 de producto notable", 400, 300);
     }
 
     @Override
     public void actionPerformed(ActionEvent boton) {
         if (boton.getSource() == btnok) {
             System.out.print(contador);
-                    
+
             if (contador >= 1) {
                 setValidar();
             } else {
@@ -126,9 +137,9 @@ public class Nivel3 extends JFrame
         }
 
         if (boton.getSource() == btnsigui) {
-             dispose();
-        
-new Nivel4("Nivel 4 de factorizacion de trinomio", 500, 500);
+            dispose();
+
+            new Nivel4("Nivel 4 de factorizacion de trinomio", 400, 300);
 
         }
 

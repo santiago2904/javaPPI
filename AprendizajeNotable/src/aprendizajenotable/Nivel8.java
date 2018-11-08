@@ -1,6 +1,5 @@
 package aprendizajenotable;
 
-
 import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -14,6 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import aprendizajenotable.menu;
 import aprendizajenotable.Puntos;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -36,15 +37,20 @@ public class Nivel8 extends JFrame implements ActionListener {
         setLocationRelativeTo(this);
 
         //paso2 crear las instancias al constructor 
-        this.getContentPane().setBackground(new java.awt.Color(255, 239, 213));
+        ImageIcon img = new ImageIcon(getClass().getResource("/imagenes/fondo.jpg"));
+        JLabel fondo = new JLabel(img);
+        JLayeredPane layered = new JLayeredPane();// objeto para colocar imagen de fondo
+        ((JPanel) getContentPane()).setOpaque(false);
+        fondo.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
         iconok = new ImageIcon(getClass().getResource(ruta + "ok.png"));
-        iconsig = new ImageIcon(getClass().getResource(ruta + "next1.png"));
+        iconsig = new ImageIcon(getClass().getResource(ruta + "next.png"));
         lblpregunta = new JLabel("La formula correcta para realizar un trinomio ");
-        lblpregunta1 = new JLabel("cuadrado perfecto con los numeros(20, 3 y 10) es:");
-        rdbtnop1 = new JRadioButton("20x + 3 + 10");
-        rdbtnop2 = new JRadioButton("20 + 3x + 10");
-        rdbtnop3 = new JRadioButton(" 20^2 + 3x + 10");
-        rdbtnop4 = new JRadioButton("20 + 3 + 10");
+        lblpregunta1 = new JLabel("cuadrado perfecto con los numeros(20, 160 y 16) es:");
+        rdbtnop1 = new JRadioButton("20x + 160 + 16");
+        rdbtnop2 = new JRadioButton("20 + 160x + 16");
+        rdbtnop3 = new JRadioButton(" 20² + 160y + 16y²");
+        rdbtnop4 = new JRadioButton("20 + 160 + 16");
         grupop1 = new ButtonGroup();
         btnOk = new JButton(iconok);
         btnSiguiente = new JButton(iconsig);
@@ -52,13 +58,12 @@ public class Nivel8 extends JFrame implements ActionListener {
         lblpregunta.setBounds(10, 20, 750, 20);
         lblpregunta1.setBounds(10, 40, 750, 30);
 
-
         rdbtnop1.setBounds(10, 80, 420, 20);
-        rdbtnop2.setBounds(10, 100, 420, 20);
-        rdbtnop3.setBounds(10, 120, 420, 20);
-        rdbtnop4.setBounds(10, 140, 420, 20);
-        btnOk.setBounds(20, 190, 100, 20);
-        btnSiguiente.setBounds(130, 190, 100, 20);
+        rdbtnop2.setBounds(10, 110, 420, 20);
+        rdbtnop3.setBounds(10, 140, 420, 20);
+        rdbtnop4.setBounds(10, 170, 420, 20);
+        btnOk.setBounds(20, 210, 100, 20);
+        btnSiguiente.setBounds(130, 210, 100, 20);
 
         btnOk.addActionListener(this);
         btnSiguiente.addActionListener(this);
@@ -79,49 +84,52 @@ public class Nivel8 extends JFrame implements ActionListener {
         add(btnSiguiente);
 
         Font fuente = new Font("Comic Sans MS", 2, 16);
-        Font fuente1 = new Font("Cambria", 3, 13);
+        Font fuente1 = new Font("Cambria", 3, 20);
 
         lblpregunta.setFont(fuente);
         lblpregunta1.setFont(fuente);
-        rdbtnop1.setBackground(new java.awt.Color(255, 239, 213));
-        rdbtnop2.setBackground(new java.awt.Color(255, 239, 213));
-        rdbtnop3.setBackground(new java.awt.Color(255, 239, 213));
-        rdbtnop4.setBackground(new java.awt.Color(255, 239, 213));
+        rdbtnop1.setOpaque(false);
+        rdbtnop2.setOpaque(false);
+        rdbtnop3.setOpaque(false);
+        rdbtnop4.setOpaque(false);
+        rdbtnop1.setFont(fuente1);
+        rdbtnop2.setFont(fuente1);
+        rdbtnop3.setFont(fuente1);
+        rdbtnop4.setFont(fuente1);
 
         setVisible(true);
 
     }
 
     public void setValidar() {
-        if (rdbtnop1.isSelected()) {
-            Puntos.setErrores(1);
+
+        if (!(rdbtnop1.isSelected()) && !(rdbtnop2.isSelected()) && !(rdbtnop3.isSelected()) && !(rdbtnop4.isSelected())) {
+
+            JOptionPane.showMessageDialog(this, "Seleccione una opción");
+
+        } else {
+
+            if (rdbtnop1.isSelected()) {
+                Puntos.setErrores(1);
+
+            }
+            if (rdbtnop2.isSelected()) {
+                Puntos.setErrores(1);
+            }
+
+            if (rdbtnop3.isSelected()) {
+                Puntos.setAcieros(1);
+
+            }
+            if (rdbtnop4.isSelected()) {
+                Puntos.setErrores(1);
+
+            }
 
             btnOk.setVisible(false);
             btnSiguiente.setVisible(true);
 
         }
-        if (rdbtnop2.isSelected()) {
-            Puntos.setErrores(1);
-
-            btnOk.setVisible(false);
-            btnSiguiente.setVisible(true);
-
-        }
-
-        if (rdbtnop3.isSelected()) {
-            Puntos.setAcieros(1);
-
-            btnOk.setVisible(false);
-            btnSiguiente.setVisible(true);
-        }
-        if (rdbtnop4.isSelected()) {
-            Puntos.setErrores(1);
-
-
-            btnOk.setVisible(false);
-            btnSiguiente.setVisible(true);
-        }
-
     }
 
     public static void main(String[] args) {
@@ -136,9 +144,8 @@ public class Nivel8 extends JFrame implements ActionListener {
 
         if (boton.getSource() == btnSiguiente) {
             dispose();
-            JOptionPane.showMessageDialog(null, "Aciertos: " + Puntos.getAcieros()
-                    + " de 6 " + " Errores: " + Puntos.getErrores() + " de 6 ");
-            new Nivel9("Nivel 9 de Producto Notable", 500, 500);
+
+            new Nivel9("Nivel 9 de Producto Notable", 400, 300);
 
         }
 
